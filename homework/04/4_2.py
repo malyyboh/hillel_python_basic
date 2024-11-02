@@ -6,8 +6,8 @@ for i in lst:
         sum_elements = sum_elements + i
 
 if sum_elements > 0:
-    sum_element = sum_elements * lst[-1]
-    print(sum_element)
+    sum_elements = sum_elements * lst[-1]
+    print(sum_elements)
 else:
     print(0)
 
