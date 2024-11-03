@@ -7,7 +7,9 @@ for i in range(random.randint(3, 10)):
     lst.append(random.randint(1, 10))
 print(lst)
 
-for i, el in enumerate(lst):
-    if i == 0 or i == 2 or i == len(lst) - 2:
-        new_lst.append(el)
+new_lst.append(lst[0])
+new_lst.append(lst[2])
+new_lst.append(lst[-2])
+
 print(new_lst)
+
