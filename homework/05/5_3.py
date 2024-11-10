@@ -11,6 +11,6 @@ for item in user_str:
 user_str = hashtag_mark + user_str.title().replace(' ', '')
 
 if len(user_str) > 140:
-    user_str = user_str[:141]
+    user_str = user_str[:140]
 
 print(user_str)
