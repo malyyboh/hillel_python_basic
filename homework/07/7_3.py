@@ -1,8 +1,6 @@
 def second_index(text, some_str):
     if text.count(some_str) > 1:
         return text.index(some_str, text.index(some_str) + 1)
-    else:
-        return None
 
 
 assert second_index("sims", "s") == 3, 'Test1'
