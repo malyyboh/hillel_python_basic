@@ -1,8 +1,6 @@
 def difference(*args):
     if len(args) > 1:
         return round(max(args) - min(args), 2)
-    elif len(args) == 1:
-        return args  # return the element without changes
     else:
         return 0
 
