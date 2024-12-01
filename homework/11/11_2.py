@@ -4,6 +4,7 @@ def generate_cube_numbers(end):
         yield num ** 3
         num += 1
 
+
 from inspect import isgenerator
 
 gen = generate_cube_numbers(1)
