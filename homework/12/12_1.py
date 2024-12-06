@@ -5,22 +5,15 @@ def delete_html_tags(html_file, result_file='cleaned.txt'):
 
     with codecs.open(html_file, 'r', 'utf-8') as file:
         html = file.readlines()
-        lst = []
-        lst2 = []
         for line in html:
-            if line.count('<') <= 1 or line.count('>') <= 1:
-                line = ''
-                with codecs.open(result_file, 'a', 'utf-8') as file:
-                    file.write(line)
-            elif line.count('<') > 1 or line.count('>') > 1:
-                for i in line:
-                    ind = line.find('>')
-                    ind_2 = line.find('<')
-                    ind_3 = line.find('<', ind_2 + 1)
-                    if i == '>' and line.index(i) == ind:
-                        line = line[ind:ind_3]
-                with codecs.open(result_file, 'a', 'utf-8') as file:
-                    file.write(line)
+            if line.count('<') > 1 or line.count('>') > 1:
+                lst = []
+                lst = line.split('>')
+                lst = lst[1].split('<')
+                if len(lst[0]) >= 1:
+                    line = lst[0] + '\n'
+                    with codecs.open(result_file, 'a', 'utf-8') as file:
+                        file.write(line)
 
 
 
