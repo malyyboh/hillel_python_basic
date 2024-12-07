@@ -29,16 +29,17 @@ class Purchase:
 
     def add_item(self, item, cnt):
         self.products[item] = cnt
+        self.total = self.total + item.price * cnt
 
     def __str__(self):
-        print(f"User: {self.user}\nItems:")
-        return '\n'.join(f"{k}: {v}" for k, v in self.products.items())
+        products_str = ""
+        for k, v in self.products.items():
+            products_str += f"{k.name}: {v}\n"
+        user_products_str = f"User: {self.user}\nItems:\n" + products_str
+        return user_products_str
 
     def get_total(self):
-        pass
-
-
-
+        return self.total
 
 
 lemon = Item('lemon', 5, "yellow", "small", )
@@ -46,7 +47,7 @@ apple = Item('apple', 2, "red", "middle", )
 print(lemon)  # lemon, price: 5
 
 buyer = User("Ivan", "Ivanov", "02628162")
-# print(buyer)  # Ivan Ivanov
+print(buyer)  # Ivan Ivanov
 
 cart = Purchase(buyer)
 cart.add_item(lemon, 4)
@@ -59,10 +60,10 @@ lemon: 4 pcs.
 apple: 20 pcs.
 """
 assert isinstance(cart.user, User) is True, 'Екземпляр класу User'
-# assert cart.get_total() == 60, "Всього 60"
-# assert cart.get_total() == 60, 'Повинно залишатися 60!'
-# cart.add_item(apple, 10)
-# print(cart)
+assert cart.get_total() == 60, "Всього 60"
+assert cart.get_total() == 60, 'Повинно залишатися 60!'
+cart.add_item(apple, 10)
+print(cart)
 """
 User: Ivan Ivanov
 Items:
@@ -70,6 +71,6 @@ lemon: 4 pcs.
 apple: 10 pcs.
 """
 
-# assert cart.get_total() == 40
+assert cart.get_total() == 40
 cart.get_total()
 
