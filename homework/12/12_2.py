@@ -29,7 +29,6 @@ class Purchase:
 
     def add_item(self, item, cnt):
         self.products[item] = cnt
-        self.total = self.total + item.price * cnt
 
     def __str__(self):
         products_str = ""
@@ -39,8 +38,10 @@ class Purchase:
         return user_products_str
 
     def get_total(self):
-        return self.total
-
+        sum_total_lst = []
+        for k, v in self.products.items():
+            sum_total_lst.append(k.price * v)
+        return sum(sum_total_lst)
 
 lemon = Item('lemon', 5, "yellow", "small", )
 apple = Item('apple', 2, "red", "middle", )
@@ -72,5 +73,3 @@ apple: 10 pcs.
 """
 
 assert cart.get_total() == 40
-cart.get_total()
-
