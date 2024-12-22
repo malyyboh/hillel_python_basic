@@ -46,7 +46,7 @@ while True:
     def save_person(records: DataPersons):
         if records.data_persons:
             input_file_name = input(f"{Back.LIGHTCYAN_EX}{Fore.BLACK}Задайте назву текстового файлу для збереження:{Style.RESET_ALL} ")
-            with codecs.open(f"db/{input_file_name}.txt", "a", "utf-8") as db:
+            with codecs.open(f"{input_file_name}.txt", "a", "utf-8") as db:
                 for item in records.data_persons:
                     db.write(f"{str(item)}\n")
             save_message = f"{Fore.LIGHTGREEN_EX}Дані збережено!{Style.RESET_ALL}"
@@ -57,7 +57,7 @@ while True:
     def search_person():
         input_file_name = input(f"{Back.LIGHTCYAN_EX}{Fore.BLACK}Введіть назву файлу для пошуку:{Style.RESET_ALL} ")
         try:
-            with codecs.open(f"db/{input_file_name}.txt", "r", "utf-8") as db:
+            with codecs.open(f"{input_file_name}.txt", "r", "utf-8") as db:
                 db_lines = db.readlines()
         except FileNotFoundError:
             print(f"{Fore.LIGHTRED_EX}Файла не знайдено!{Style.RESET_ALL}")
@@ -88,7 +88,7 @@ while True:
     def show_all_persons():
         input_file_name = input(f"{Back.LIGHTCYAN_EX}{Fore.BLACK}Введіть назву файлу для відображення всіх записів:{Style.RESET_ALL} ")
         try:
-            with codecs.open(f"db/{input_file_name}.txt", "r", "utf-8") as db:
+            with codecs.open(f"{input_file_name}.txt", "r", "utf-8") as db:
                 db_lines = db.readlines()
         except FileNotFoundError:
             print(f"{Fore.LIGHTRED_EX}Файла не знайдено!{Style.RESET_ALL}")
